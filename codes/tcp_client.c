@@ -14,7 +14,7 @@ void tcp_client()
 	char host_name[256];
 	int port;
 	char dst[256];
-	char send[33*1024];
+	char send[1024];
 	char recv[1024];
 
 	strcpy(host_name, "127.0.0.1");
@@ -41,20 +41,19 @@ void tcp_client()
 	}
 
 	memset(send, 0, sizeof(send));
+	memset(recv, 0, sizeof(recv));
+
 	char *send1 = "GET /tests/test/index HTTP/1.1\r\nHost: 127.0.0.1:8080\r\n";
 	strcpy(send, send1);
 
 //	int j = strlen(send);
-//	for(int i =j; i< 33 * 1024 - 2; ++i) {
+//	for(int i =j; i< 1124; ++i) {
 //		send[i] = 'A';
 //	}
-//	send[33 * 1024 - 2] = '\r';
-//	send[33 * 1024 - 1] = '\n';
 
 	//写入请求数据
 	write(sd, send, strlen(send));
 	printf("the sizeof of the send: %lu\n", sizeof(send));
-	sleep(1);
 
 	//写入\r\n，结束请求首部.
 	strcpy(send, "\r\n");
@@ -62,10 +61,9 @@ void tcp_client()
 
 	//读取nginx响应数据.
 	read(sd, recv, 1000);
-	printf("the response of the server is: %s\n", recv);
+	printf("the response of the server is: \n%s", recv);
 
 	//关闭连接
-	sleep(5);
 	close(sd);
 	printf("the connection is close.\n");
 }
