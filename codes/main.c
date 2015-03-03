@@ -9,6 +9,5 @@
 
 int main()
 {
-	//test_fork();
 	tcp_client();
 }
