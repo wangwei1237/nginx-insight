@@ -1,4 +1,7 @@
-
+book/Makefile
+book/make.bat
+book/build/
+.*
 *~
 
 GDB实战之生产环境下的GDB实战.docx
