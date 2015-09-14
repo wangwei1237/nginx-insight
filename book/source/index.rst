@@ -11,7 +11,7 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-    chapter_1_break.rst
+    chapter_1_break
 
 Indices and tables
 ==================
