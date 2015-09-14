@@ -10,8 +10,8 @@ Contents:
 
 .. toctree::
    :maxdepth: 2
-
-    chapter_1_break
+   
+   chapter_1_break
 
 Indices and tables
 ==================
